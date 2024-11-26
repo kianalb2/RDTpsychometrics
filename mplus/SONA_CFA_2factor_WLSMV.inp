@@ -1,0 +1,46 @@
+TITLE: SONA Ordinal CFA with Bayesian Estimation
+
+DATA:   
+      FILE IS "C:\Users\kianalb2\Downloads\SONA_mplus.csv";  !Need to convert data to .dat file?
+
+VARIABLE:
+      NAMES = rt1 rt2 rt3 rt7 rt8 rt9 rt13
+                rt14 rt15 rt19 rt20 rt21 rt25 rt26 rt27;
+      CATEG = rt1 rt2 rt3 rt7 rt8 rt9 rt13
+                      rt14 rt15 rt19 rt20 rt21 rt25 rt26 rt27;
+       missing = all(999);
+
+ANALYSIS:
+    !ESTIMATOR = BAYES; !Must specify BAYES here to run Bayesian estimation.
+    !FBITERATION=200000; !Indicates the number of MCMC iterations to be used.
+    !POINT=MEDIAN; !Statistic used to as point estimate for the posterior distributions.
+    !PROCESSORS=2; !Specifies the number of MCMC chains to run.
+    !ALGORITHM = GIBBS(PX1); !Specifies the type of MCMC algorithm to be used.
+    !BSEED = 3; !Random seed to start the MCMC chains.
+    Parameter = theta;
+MODEL:
+    F1 BY
+    rt1* rt2 rt3 rt7 rt9 rt13 rt19 rt25 rt26 rt27(f1 f2 f3 f7 f9 f13 f19 f25 f26 f27);
+    F2 BY
+    rt8* rt14 rt15 rt20 rt21(f8 f14 f15 f20 f21);
+
+    F1@1; !Fix latent variable variance to 1
+   [F1@0]; ! Fix mean to zero
+
+    F2@1; !Fix latent variable variance to 1
+   [F2@0]; ! Fix mean to zero
+
+    F1 WITH F2 (cov1);
+    RT19     WITH RT9;
+    RT26     WITH RT25;
+
+MODEL PRIORS:
+
+    !b1-b15~N(0, 1);
+    !cov1 ~IW(1, 3);
+
+OUTPUT:  STAND; MOD;
+    TECH8; !Will display the potential scale reduction factor.
+
+PLOT:
+    TYPE=PLOT3; !Supplies the posterior histograms, trace and autocorrelation plots.

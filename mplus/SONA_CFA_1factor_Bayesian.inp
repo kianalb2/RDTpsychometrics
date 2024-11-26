@@ -1,0 +1,37 @@
+TITLE: SONA Ordinal CFA with Bayesian Estimation (1 Factor Solution)
+
+DATA:   
+      FILE IS "C:\Users\kianalb2\Downloads\SONA_mplus.csv";
+
+VARIABLE:
+      NAMES = r1 r2 r3 r4 r5 r6 r7
+                r8 r9 r10 r11 r12 r13 r14 r15;
+      CATEG = r1 r2 r3 r4 r5 r6 r7
+                r8 r9 r10 r11 r12 r13 r14 r15;
+       missing = all(999);
+
+ANALYSIS:
+    ESTIMATOR = BAYES; !Must specify BAYES here to run Bayesian estimation.
+    FBITERATION=200000; !Indicates the number of MCMC iterations to be used.
+    POINT=MEDIAN; !Statistic used to as point estimate for the posterior distributions.
+    PROCESSORS=2; !Specifies the number of MCMC chains to run.
+    ALGORITHM = GIBBS(PX1); !Specifies the type of MCMC algorithm to be used.
+    BSEED = 3; !Random seed to start the MCMC chains.
+
+MODEL:
+  F1 BY
+    r1* r2 r3 r4 r5 r6 r7 r8 r9 r10 r11 r12 r13 r14 r15(a b c d e f g h i j k l m n o);
+    ! Had issues continuing onto next line, changed names to fit within 90 char limit
+
+  F1@1; ! Fix latent variable variance to 1
+  [F1@0]; ! Fix mean to zero
+
+MODEL PRIORS:
+    a-o~N(0, 1);
+
+OUTPUT:  STAND;
+    TECH8; !Will display the potential scale reduction factor.
+    RESIDUAL; !Request residuals/error for each item
+
+PLOT:
+    TYPE=PLOT3; !Supplies the posterior histograms, trace and autocorrelation plots.
