@@ -34,22 +34,22 @@ check_and_load("irr", "# Intraclass correlation")
 ### Path to data (update)
 ```{r data_path}
 # Path to data of first SONA sample administration of the RDT
-data_path_orig <- "/Users/kianabunnell/Library/CloudStorage/Box-Box/Scrupulosity_SONA_PHI/Data/2ndYearProject/cleanedRDTorig.xlsx"
+data_path_orig <- "cleanedRDTorig.xlsx"
 
 # Path to data of second SONA sample administration of the RDT
-data_path_rep <- "/Users/kianabunnell/Library/CloudStorage/Box-Box/Scrupulosity_SONA_PHI/Data/2ndYearProject/cleanedRDTrep.xlsx"
+data_path_rep <- "cleanedRDTrep.xlsx"
 
 # Path to Qualtrics administration of RDT in fMRI sample 
-data_path_fMRI_qual <- "/Users/kianabunnell/Library/CloudStorage/Box-Box/Scrupulosity_fMRI/Behavioral_Data/data/Old_Versions_Data/221118_survey_data.csv"
+data_path_fMRI_qual <- "221118_survey_data.csv"
 
 # Path to first in-scanner administration of the RDT in fMRI sample
-data_path_fMRI_1 <- "/Users/kianabunnell/Library/CloudStorage/Box-Box/Second_Year_Project/Analysis/Data/inScanner_RDT/fMRI_RDT1.xlsx"
+data_path_fMRI_1 <- "fMRI_RDT1.xlsx"
 
 # Path of second in-scanner administration of the RDT in fMRI sample
-data_path_fMRI_2 <- "/Users/kianabunnell/Library/CloudStorage/Box-Box/Second_Year_Project/Analysis/Data/inScanner_RDT/fMRI_RDT2.xlsx"
+data_path_fMRI_2 <- "fMRI_RDT2.xlsx"
 
 # Path to diagnosis key
-data_path_diag <- "/Users/kianabunnell/Library/CloudStorage/Box-Box/Second_Year_Project/Analysis/Data/diagnosis_key.xlsx"
+data_path_diag <- "diagnosis_key.xlsx"
 ```
 
 
