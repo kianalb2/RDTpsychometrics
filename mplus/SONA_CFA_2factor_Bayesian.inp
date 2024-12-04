@@ -1,7 +1,7 @@
 TITLE: SONA Ordinal CFA with Bayesian Estimation
 
 DATA:   
-      FILE IS "C:\Users\kianalb2\Downloads\SONA_mplus.csv";  !Need to convert data to .dat file?
+      FILE IS "C:SONA_mplus.csv";  !Need to convert data to .dat file?
 
 VARIABLE:
       NAMES = rt1 rt2 rt3 rt7 rt8 rt9 rt13
