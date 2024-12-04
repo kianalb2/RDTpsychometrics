@@ -1,6 +1,6 @@
 TITLE: fMRI Ordinal/Bayesian CFA & Comp of Loadings
 
-DATA:   FILE IS "C:\Users\kianalb2\Downloads\fMRI_qual_mplus.csv" ;  
+DATA:   FILE IS "C:fMRI_qual_mplus.csv" ;  
 
 VARIABLE:
       NAMES = rt1 rt2 rt3 rt7 rt8 rt9 rt13
